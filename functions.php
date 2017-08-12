@@ -38,3 +38,31 @@ require get_template_directory() . '/inc/template-tags.php';
 require get_template_directory() . '/inc/extras.php';
 
 require get_template_directory() . '/inc/customizer.php';
+
+require_once dirname( __FILE__ ) . '/class-tgm-plugin-activation.php';
+
+add_action( 'tgmpa_register', 'crispshop_required_plugins' );
+
+function crispshop_required_plugins() {
+    $plugins = array(
+	    array(
+	        'name' => 'Customize Image Gallery Control',
+	        'slug' => 'wp-customize-image-gallery-control',
+	        'source' => 'https://github.com/xwp/wp-customize-image-gallery-control/archive/master.zip',
+	        'required' => true,
+	        'force_activation' => false,
+	    ),
+	    array(
+			'name' => 'MailPoet Newsletters',
+			'slug' => 'wysija-newsletters',
+			'required'  => true,
+		),
+		array(
+			'name' => 'Contact Form 7',
+			'slug' => 'contact-form-7',
+			'required'  => true,
+		),
+	);
+ 
+    tgmpa( $plugins );
+}
