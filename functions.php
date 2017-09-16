@@ -62,6 +62,11 @@ function crispshop_required_plugins() {
 			'slug' => 'contact-form-7',
 			'required'  => true,
 		),
+		array(
+			'name' => 'WooCommerce',
+			'slug' => 'woocommerce',
+			'required'  => true,
+		),
 	);
  
     tgmpa( $plugins );
