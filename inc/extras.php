@@ -78,7 +78,8 @@ function crispshop_add_cart_ajax() {
 	WC()->cart->add_to_cart($prodID);
 
 	$items = WC()->cart->get_cart();
-	$item_count = count($items); ?>
+	global $woocommerce;
+	$item_count = $woocommerce->cart->cart_contents_count; ?>
 
 	<span class="item-count"><?php echo $item_count; ?></span>
 
@@ -157,7 +158,8 @@ function crispshop_add_cart_single_ajax() {
 	}
 
 	$items = WC()->cart->get_cart();
-	$item_count = count($items); ?>
+	global $woocommerce;
+	$item_count = $woocommerce->cart->cart_contents_count; ?>
 
 	<span class="item-count"><?php echo $item_count; ?></span>
 
